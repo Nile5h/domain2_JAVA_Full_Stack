@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/ContactDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="com.zaxxer.hikari.HikariJNDIFactory"
+              jdbcUrl="jdbc:mysql://127.0.0.1:3306/contactdb?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"
+              username="root"
+              password="javadb"
+              maximumPoolSize="20"/>
+</Context>

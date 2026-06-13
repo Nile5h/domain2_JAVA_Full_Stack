@@ -21,28 +21,53 @@ public class ContactServlet extends HttpServlet {
 
     @Override
     public void init() {
-        contactDAO = new ContactDAOImpl(DBUtil.getDataSource());
+        this.contactDAO = new ContactDAOImpl(DBUtil.getDataSource());
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {        
+            throws ServletException, IOException {
+        
         String path = request.getServletPath();
-        if (path == null) path = "/contacts";
-
+        
         if ("/contacts/add".equals(path)) {
             request.getRequestDispatcher("/WEB-INF/views/contact-form.jsp").forward(request, response);
-        } else if ("/contacts".equals(path) || "/".equals(path)) {
+        } else {
             try {
-                String search = request.getParameter("search");
-                List<Contact> contacts = contactDAO.searchContacts(search);
+                String searchTerm = request.getParameter("search");
+                List<Contact> contacts;
+                
+                if (searchTerm != null && !searchTerm.trim().isEmpty()) {
+                    contacts = contactDAO.searchContacts(searchTerm);
+                } else {
+                    contacts = contactDAO.getAllContacts();
+                }
+                
                 request.setAttribute("contacts", contacts);
                 request.getRequestDispatcher("/WEB-INF/views/contact-list.jsp").forward(request, response);
             } catch (SQLException e) {
-                throw new ServletException("Database error", e);
+                throw new ServletException("Error retrieving contacts from database", e);
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+
+        Contact newContact = new Contact(null, name, email, phone);
+
+        try {
+            contactDAO.addContact(newContact);
+            // Use Post-Redirect-Get pattern to prevent duplicate submissions
+            response.sendRedirect(request.getContextPath() + "/contacts");
+        } catch (SQLException e) {
+            request.setAttribute("errorMessage", "Error saving contact: " + e.getMessage());
+            request.getRequestDispatcher("/WEB-INF/views/contact-form.jsp").forward(request, response);
         }
     }
 }

@@ -14,10 +14,9 @@ public class DBUtil {
                 Context ctx = new InitialContext();
                 dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/ContactDB");
             } catch (NamingException e) {
-                throw new RuntimeException("Failed to initialize DataSource", e);
+                throw new RuntimeException("Failed to lookup DataSource from JNDI", e);
             }
         }
         return dataSource;
     }
 }
-

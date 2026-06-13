@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/ContactDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              factory="com.zaxxer.hikari.HikariJNDIFactory"
+              jdbcUrl="jdbc:mysql://localhost:3306/contactdb"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              username="root"
+              password="your_password"
+              maximumPoolSize="10"/>
+</Context>

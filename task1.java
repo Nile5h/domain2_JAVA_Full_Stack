@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+@SuppressWarnings("unused")
 class task1 {
 
     public static void program1(){

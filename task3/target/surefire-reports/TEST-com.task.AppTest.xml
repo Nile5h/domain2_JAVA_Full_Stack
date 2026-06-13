@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-26.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\ok\AppData\Local\Temp\surefire1884313596863037342\surefirebooter6030210851842748448.jar C:\Users\ok\AppData\Local\Temp\surefire1884313596863037342 2026-06-13T13-38-59_307-jvmRun1 surefire12804436625287462020tmp surefire_017522259136774638437tmp"/>
+    <property name="sun.java.command" value="C:\Users\ok\AppData\Local\Temp\surefire2664523482099283124\surefirebooter17182326403306177548.jar C:\Users\ok\AppData\Local\Temp\surefire2664523482099283124 2026-06-14T00-04-34_572-jvmRun1 surefire9750870086433223261tmp surefire_014756912833409872967tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\ok\Desktop\softnixes\domain2_JAVA_Full_Stack\task3\target\test-classes;C:\Users\ok\Desktop\softnixes\domain2_JAVA_Full_Stack\task3\target\classes;C:\Users\ok\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\ok\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\ok\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\ok\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\ok\.m2\repository\jakarta\servlet\jakarta.servlet-api\6.0.0\jakarta.servlet-api-6.0.0.jar;C:\Users\ok\.m2\repository\jakarta\servlet\jsp\jstl\jakarta.servlet.jsp.jstl-api\3.0.0\jakarta.servlet.jsp.jstl-api-3.0.0.jar;C:\Users\ok\.m2\repository\jakarta\el\jakarta.el-api\5.0.0\jakarta.el-api-5.0.0.jar;C:\Users\ok\.m2\repository\org\glassfish\web\jakarta.servlet.jsp.jstl\3.0.1\jakarta.servlet.jsp.jstl-3.0.1.jar;C:\Users\ok\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\ok\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\ok\.m2\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;C:\Users\ok\.m2\repository\com\google\protobuf\protobuf-java\3.25.1\protobuf-java-3.25.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\ok\AppData\Local\Temp\surefire1884313596863037342\surefirebooter6030210851842748448.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ok\AppData\Local\Temp\surefire2664523482099283124\surefirebooter17182326403306177548.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="26.0.1+8-34"/>

@@ -1,22 +1,35 @@
 package com.task.util;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 public class DBUtil {
     private static DataSource dataSource;
 
     public static DataSource getDataSource() {
         if (dataSource == null) {
-            try {
-                Context ctx = new InitialContext();
-                dataSource = (DataSource) ctx.lookup("java:comp/env/jdbc/ContactDB");
-            } catch (NamingException e) {
-                throw new RuntimeException("Failed to lookup DataSource from JNDI", e);
-            }
+            HikariConfig config = new HikariConfig();
+            config.setJdbcUrl("jdbc:postgresql://localhost:5432/contactdb");
+            config.setUsername("admin");
+            config.setPassword("secret");
+            config.setMaximumPoolSize(20);
+            config.setConnectionTimeout(30000);
+
+            dataSource = new HikariDataSource(config);
         }
         return dataSource;
+    }
+
+    public static void closeConnection(DataSource dataSource) {
+        if (dataSource != null) {
+            try {
+                dataSource.getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

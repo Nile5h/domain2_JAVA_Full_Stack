@@ -25,7 +25,11 @@ public class AddContactServlet extends HttpServlet {
 
     @Override
     public void init() {
-        this.contactDAO = new ContactDAOImpl(DBUtil.getDataSource());
+        try {
+            this.contactDAO = new ContactDAOImpl(DBUtil.getDataSource());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // Validation Regular Expressions

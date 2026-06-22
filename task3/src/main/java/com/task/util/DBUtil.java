@@ -1,35 +1,21 @@
 package com.task.util;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-
+import com.mysql.cj.jdbc.MysqlDataSource;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
 public class DBUtil {
-    private static DataSource dataSource;
+    private static MysqlDataSource dataSource;
 
-    public static DataSource getDataSource() {
+    public static DataSource getDataSource() throws SQLException {
         if (dataSource == null) {
-            HikariConfig config = new HikariConfig();
-            config.setJdbcUrl("jdbc:postgresql://localhost:5432/contactdb");
-            config.setUsername("admin");
-            config.setPassword("secret");
-            config.setMaximumPoolSize(20);
-            config.setConnectionTimeout(30000);
-
-            dataSource = new HikariDataSource(config);
+            dataSource = new MysqlDataSource();
+            dataSource.setUrl("jdbc:mysql://localhost:3306/your_database_name");
+            dataSource.setUser("root");
+            dataSource.setPassword("NileshSQL");
+            // Optional: Handle timezone issues
+            dataSource.setServerTimezone("UTC");
         }
         return dataSource;
-    }
-
-    public static void closeConnection(DataSource dataSource) {
-        if (dataSource != null) {
-            try {
-                dataSource.getConnection().close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }
